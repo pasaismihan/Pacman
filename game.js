@@ -9,7 +9,7 @@ let createRect = (x, y, width, height, color) => {
     canvasContext.fillRect(x, y, width, height);
 }
 
-let fps = 50;
+let fps = 25;
 let oneBlockSize = 20;
 let wallColor = '#342DCA';
 let wallSpaceWidth = oneBlockSize / 1.5;
@@ -74,6 +74,9 @@ let gameLoop = () => {
 let update = () => {
     pacman.moveProcess();
     pacman.eat();
+    for (let i = 0 ; i <ghosts.length; i++){
+        ghosts[i].moveProcess();
+    }
 }
 
 let drawFoods = () => {
